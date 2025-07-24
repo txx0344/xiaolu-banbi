@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祝小鹿斑比越来越火</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            padding: 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+        
+        .title {
+            font-size: 2.8rem;
+            color: #ff6b6b;
+            text-shadow: 3px 3px 0 #ffd166, 6px 6px 0 rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            animation: title-pulse 2s infinite;
+        }
+        
+        .deer-container {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            margin: 0 auto 30px;
+        }
+        
+        .deer {
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><ellipse cx="100" cy="80" rx="40" ry="50" fill="%238B4513"/><circle cx="85" cy="70" r="5" fill="%23000"/><circle cx="115" cy="70" r="5" fill="%23000"/><path d="M95 90 Q100 95 105 90" stroke="%23000" fill="none" stroke-width="2"/><ellipse cx="100" cy="150" rx="30" ry="60" fill="%238B4513"/><ellipse cx="70" cy="130" rx="15" ry="40" fill="%238B4513" transform="rotate(-20 70 130)"/><ellipse cx="130" cy="130" rx="15" ry="40" fill="%238B4513" transform="rotate(20 130 130)"/><rect x="85" y="210" width="30" height="60" fill="%238B4513"/><rect x="75" y="270" width="15" height="50" fill="%238B4513"/><rect x="110" y="270" width="15" height="50" fill="%238B4513"/><path d="M60 60 Q50 40 60 20" stroke="%238B4513" stroke-width="5" fill="none"/><path d="M140 60 Q150 40 140 20" stroke="%238B4513" stroke-width="5" fill="none"/><circle cx="100" cy="40" r="10" fill="%23FFD700"/></svg>') no-repeat center;
+            background-size: contain;
+            animation: dance-deer 1.8s infinite ease-in-out;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .dance-floor {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 20px;
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb, #a1c4fd);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .praise-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 900px;
+            margin: 0 auto 30px;
+        }
+        
+        .praise-word {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            animation: float 4s infinite ease-in-out;
+            backdrop-filter: blur(5px);
+        }
+        
+        .praise-word:nth-child(2n) {
+            animation-delay: 1s;
+        }
+        
+        .praise-word:nth-child(3n) {
+            animation-delay: 2s;
+        }
+        
+        .praise-word:nth-child(4n) {
+            animation-delay: 3s;
+        }
+        
+        .money-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .money {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: money-fall linear forwards;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            font-size: 1.8rem;
+            color: #ff6b6b;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            animation: glow 2s infinite alternate;
+            font-weight: bold;
+        }
+        
+        /* 动画定义 */
+        @keyframes dance-deer {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-25px) rotate(-3deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(-25px) rotate(3deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes title-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes money-fall {
+            to { transform: translateY(100vh); }
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff6b6b, 0 0 20px #ff6b6b; }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff6b6b, 0 0 40px #ff6b6b; }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .praise-word {
+                font-size: 1rem;
+                padding: 8px 15px;
+            }
+            
+            .deer-container {
+                width: 250px;
+                height: 350px;
+            }
+            
+            .footer {
+                font-size: 1.4rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .praise-container {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">祝小鹿斑比越来越火！</h1>
+        
+        <div class="deer-container">
+            <div class="deer"></div>
+            <div class="dance-floor"></div>
+        </div>
+        
+        <div class="praise-container">
+            <div class="praise-word">舞姿优美</div>
+            <div class="praise-word">才华横溢</div>
+            <div class="praise-word">魅力四射</div>
+            <div class="praise-word">抖音女神</div>
+            <div class="praise-word">粉丝万千</div>
+            <div class="praise-word">财源滚滚</div>
+            <div class="praise-word">越来越火</div>
+            <div class="praise-word">光芒万丈</div>
+            <div class="praise-word">美丽动人</div>
+            <div class="praise-word">气质非凡</div>
+            <div class="praise-word">灵动可爱</div>
+            <div class="praise-word">舞动青春</div>
+        </div>
+        
+        <div class="footer">钱从四面八方来！</div>
+    </div>
+    
+    <div class="money-rain" id="moneyRain"></div>
+    
+    <script>
+        // 创建金币雨效果
+        function createMoneyRain() {
+            const moneyRain = document.getElementById('moneyRain');
+            const symbols = ['💰', '💵', '💸', '💳', '💎', '🎁', '🎉', '✨', '🌟'];
+            
+            setInterval(() => {
+                const money = document.createElement('div');
+                money.className = 'money';
+                money.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                money.style.left = Math.random() * 100 + 'vw';
+                money.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                money.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                money.style.opacity = Math.random() * 0.5 + 0.5;
+                
+                moneyRain.appendChild(money);
+                
+                // 移除元素以避免内存泄漏
+                setTimeout(() => {
+                    money.remove();
+                }, 5000);
+            }, 200);
+        }
+        
+        // 页面加载完成后启动动画
+        window.addEventListener('load', () => {
+            createMoneyRain();
+        });
+    </script>
+</body>
+</html>
